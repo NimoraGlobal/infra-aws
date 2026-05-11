@@ -1,0 +1,20 @@
+# CODEOWNERS — infra-aws
+# Copy this file to: .github/CODEOWNERS in the infra-aws repo
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# All Terraform — leads must approve
+/terraform/                @nimora-global/lead-infra-engineers
+
+# Shared modules — leads + principals co-approve (high blast radius)
+/terraform/modules/        @nimora-global/lead-infra-engineers @nimora-global/principal-infra-engineers
+
+# Prod tfvars — leads + managers co-approve (change control)
+/terraform/envs/prod/      @nimora-global/lead-infra-engineers @nimora-global/infra-managers
+
+# Ansible hardening — security team must co-approve
+/ansible/                  @nimora-global/lead-infra-engineers
+/ansible/roles/hardening/  @nimora-global/security-engineers @nimora-global/lead-infra-engineers
+
+# Pipelines — principals own (pipeline change = change control event)
+/.github/workflows/        @nimora-global/principal-infra-engineers
+/.github/CODEOWNERS        @nimora-global/principal-infra-engineers
